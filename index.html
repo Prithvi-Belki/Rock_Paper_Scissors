@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    // Your game is going to play against the computer, so begin with a function called getComputerChoice that will randomly return either ‘Rock’, ‘Paper’ or ‘Scissors’. We’ll use this function in the game to make the computer’s play.
+        function getComputerChoice() {
+            const choice = ["Rock", "Paper", "Scissor"];
+            let temp =  Math.floor(Math.random() * 3);
+            return choice[temp];
+        }
+        console.log(getComputerChoice());
+
+    // Play a round, that takes in two parameters: playerSelection & computerSelection. And return the result.
+        function playRound(playerSelection, computerSelection) {
+            const player = playerSelection.toUpperCase();
+            const computer = computerSelection.toUpperCase();
+            console.log("Player Choice: ", player);
+            console.log("Computer Choice: ", computer);
+
+            let result = "";
+            if(player === "ROCK") {
+                if(computer === "ROCK") {
+                    result = "It's a Draw";
+                } else if(computer === "PAPER") {
+                    result = `${computer} beats ${player}`;
+                } else {
+                    result = `${player} beats ${computer}`;
+                }
+            } else if(player === "PAPER") {
+                if(computer === "ROCK") {
+                    result = `${player} beats ${computer}`;
+                }else if(computer === "PAPER") {
+                    result = "It's a Draw";
+                } else {
+                    result = `${computer} beats ${player}`;
+                }
+            } else if (player === "SCISSOR") {
+                if(computer === "ROCK"){
+                    result = `${computer} beats ${paper}`;
+                } else if(computer === "PAPER") {
+                    result = `${player} beats ${computer}`;
+                } else {
+                    result = "It's a Draw";
+                }
+            } else {
+                result = " Invalid Input, provide the correct input";
+            }
+            return result;
+        }
+        function displaySummary(playerScore, computerScore, tieScore) {
+            if (playerScore > computerScore) {
+                console.log('Congratulations! You won the game!');
+            }
+            else if (playerScore < computerScore) {
+                console.log('You lose the game, better luck next time!');
+            }
+            else {
+                console.log(`What a game! It's a tie!`);
+            }
+
+            console.log('Final Score:');
+            console.log(`Player: ${playerScore}`);
+            console.log(`Computer: ${computerScore}`);
+            console.log(`Ties: ${tieScore}`);
+        }
+
+        
+        function playGame() {
+            let player = prompt("Please select between Rock, Paper, Scissor.");
+            let computer = getComputerChoice();
+            console.log(playRound(player, computer));
+        }
+        playGame();
+        playGame();
+        playGame();
+        playGame();
+        playGame();
+
+        // 
+
+    </script>
+</body>
+</html>
