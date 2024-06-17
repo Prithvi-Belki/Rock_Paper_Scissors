@@ -1,70 +1,32 @@
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <script>
-    // Your game is going to play against the computer, so begin with a function called getComputerChoice that will randomly return either ‘Rock’, ‘Paper’ or ‘Scissors’. We’ll use this function in the game to make the computer’s play.
-        function getComputerChoice() {
-            const choice = ["Rock", "Paper", "Scissor"];
-            let temp =  Math.floor(Math.random() * 3);
-            return choice[temp];
-        }
-        console.log(getComputerChoice());
+    <head>
+        <title>Rock, Paper, Scissors</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
 
-    // Play a round, that takes in two parameters: playerSelection & computerSelection. And return the result.
-        function playRound(playerSelection, computerSelection) {
-            const player = playerSelection.toUpperCase();
-            const computer = computerSelection.toUpperCase();
-            console.log("Player Choice: ", player);
-            console.log("Computer Choice: ", computer);
+    </head>
 
-            let result = "";
-            if(player === "ROCK") {
-                if(computer === "ROCK") {
-                    result = "It's a Draw";
-                } else if(computer === "PAPER") {
-                    result = `${computer} beats ${player}`;
-                } else {
-                    result = `${player} beats ${computer}`;
-                }
-            } else if(player === "PAPER") {
-                if(computer === "ROCK") {
-                    result = `${player} beats ${computer}`;
-                }else if(computer === "PAPER") {
-                    result = "It's a Draw";
-                } else {
-                    result = `${computer} beats ${player}`;
-                }
-            } else if (player === "SCISSOR") {
-                if(computer === "ROCK"){
-                    result = `${computer} beats ${paper}`;
-                } else if(computer === "PAPER") {
-                    result = `${player} beats ${computer}`;
-                } else {
-                    result = "It's a Draw";
-                }
-            } else {
-                result = " Invalid Input, provide the correct input";
-            }
-            return result;
-        }
-        function playGame() {
-            let player = prompt("Please select between Rock, Paper, Scissor.");
-            let computer = getComputerChoice();
-            console.log(playRound(player, computer));
-        }
-        playGame();
-        playGame();
-        playGame();
-        playGame();
-        playGame();
+    <body>
+    <div class="container">
+        <span id="msg">Hi there! Choose your option to start playing.</span>
+        <div id="scores">
+            <p>Player: <span id="player-score">0</span></p>
+            <p>Computer: <span id="computer-score">0</span></p>
+        </div>
 
-        // 
+        <h1>Rock Paper Scissors</h1>
 
-    </script>
-</body>
+        <div id="buttons">
+            <button id="player-rock">Rock</button>
+            <button id="player-paper">Paper</button>
+            <button id="player-scissors">Scissors</button>
+        </div>
+    </div>
+
+        <script src="./game.js"></script>
+    </body>
+
 </html>
